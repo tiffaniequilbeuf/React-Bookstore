@@ -66,54 +66,65 @@ function App() {
     function addBook(title) {
         const updatedBooks = books.map((book) => {
 
-            if (book.title == title){
+            if (book.title == title) {
                 book.quantity = book.quantity + 1
             }
             return book;
         })
         setBooks(updatedBooks);
-}
+    }
 
-function removeBook() {
-    console.log("c'est moins !");
-}
+    function onChangeBook(title, value) {
+        const updatedBooks = books.map((book) => {
 
-return (
-    <>
-        <div className='titre bold'>Liste des livres dans la bibliothèque</div>
-        <div className="grid bold">
-            <p>Quantités</p>
-            <p>Livre</p>
-            <p>Couverture</p>
-        </div>
-        <ul>
-            {
-                books.map((book) => <Book book={book} addBook={addBook} removeBook={removeBook} key={book.title} />)
+            if (book.title == title) {
+                book.quantity = book.quantity + value
             }
-        </ul>
-        <button onClick={() => setStatusBtn(!statusBtn)} className="btn">Ajouter un livre</button>
+            return book;
+        })
+        setBooks(updatedBooks);
+    }
 
-        {
-            statusBtn &&
-            <form onSubmit={handleSubmit} className="form">
+    function removeBook() {
+        console.log("c'est moins !");
+    }
 
-                <label htmlFor="title">Titre</label>
-                <input type="text" id="title" value={title} onChange={(event) => setTitle(event.target.value)} />
+    return (
+        <>
+            <div className='titre bold'>Liste des livres dans la bibliothèque</div>
+            <div className="grid bold">
+                <p>Quantités</p>
+                <p>Livre</p>
+                <p>Couverture</p>
+            </div>
+            <ul>
+                {
+                    books.map((book) => <Book book={book} addBook={addBook} removeBook={removeBook} onChangeBook={onChangeBook} key={book.title} />)
+                }
+            </ul>
+            <button onClick={() => setStatusBtn(!statusBtn)} className="btn">Ajouter un livre</button>
 
-                <label htmlFor="author">Auteur</label>
-                <input type="" id="author" value={author} onChange={(event) => setAuthor(event.target.value)} />
+            {
+                statusBtn &&
+                <form onSubmit={handleSubmit} className="form">
 
-                <label htmlFor="year">Date de parution</label>
-                <input type="number" id="year" value={year} onChange={(event) => setYear(event.target.value)} />
+                    <label htmlFor="title">Titre</label>
+                    <input type="text" id="title" value={title} onChange={(event) => setTitle(event.target.value)} />
 
-                <label htmlFor="cover">Ajouter une couverture</label>
-                <input type="url" id="cover" value={cover} onChange={(event) => setCover(event.target.value)} />
+                    <label htmlFor="author">Auteur</label>
+                    <input type="" id="author" value={author} onChange={(event) => setAuthor(event.target.value)} />
 
-                <button className="btn" type="submit">Ajouter</button>
-            </form>
-        }
-    </>
-)
+                    <label htmlFor="year">Date de parution</label>
+                    <input type="number" id="year" value={year} onChange={(event) => setYear(event.target.value)} />
+
+                    <label htmlFor="cover">Ajouter une couverture</label>
+                    <input type="url" id="cover" value={cover} onChange={(event) => setCover(event.target.value)} />
+
+                    <button className="btn" type="submit">Ajouter</button>
+                </form>
+            }
+        </>
+    )
 }
 
 export default App

@@ -14,7 +14,7 @@ Je suis un libraire qui veut un logiciel pour gérer mon inventaire de livres. J
 
 - [X] Ajouter un attribut "quantity" dans l'objet livre, pour m'aider à faire mon inventaire. Il est par défaut à 1 quand j'ajoute un livre
 
-- [ ] Dans mon composant  "Book", j'ai deux boutons (+ et -) pour modifier la quantité.
+- [X] Dans mon composant  "Book", j'ai deux boutons (+ et -) pour modifier la quantité.
 
 - [ ] Si la quantité passe à 0, le livre disparait
 

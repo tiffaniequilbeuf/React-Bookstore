@@ -1,4 +1,4 @@
-export function Book({ book, addBook, removeBook }) {
+export function Book({ book, addBook, removeBook, onChangeBook }) {
 
     return (
         <>
@@ -11,8 +11,8 @@ export function Book({ book, addBook, removeBook }) {
                     <img src={book.cover} alt="alt de l'image" />:
                     <div></div>
                 }
-                <button onClick={() => addBook(book.title)} className="btn tiny-btn bold">+</button>
-                <button onClick={() => removeBook()} className="btn tiny-btn bold">-</button>
+                <button onClick={() => onChangeBook(book.title, 1)} className="btn tiny-btn bold">+</button>
+                <button onClick={() => onChangeBook(book.title, -1)} className="btn tiny-btn bold">-</button>
             </li>
         </>
     )
