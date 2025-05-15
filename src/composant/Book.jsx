@@ -1,7 +1,8 @@
 export function Book({ book, onChangeBook }) {
-
     return (
         <>
+        {   
+            book.quantity > 0 &&
             <li className="grid">
                 <div> 
                     {book.quantity && book.quantity}
@@ -14,6 +15,8 @@ export function Book({ book, onChangeBook }) {
                 <button onClick={() => onChangeBook(book.title, 1)} className="btn tiny-btn bold">+</button>
                 <button onClick={() => onChangeBook(book.title, -1)} className="btn tiny-btn bold">-</button>
             </li>
+        }
+            
         </>
     )
 }

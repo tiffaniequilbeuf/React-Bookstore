@@ -68,6 +68,8 @@ function App() {
 
             if (book.title == title) {
                 book.quantity = book.quantity + value
+
+
             }
             return book;
         })

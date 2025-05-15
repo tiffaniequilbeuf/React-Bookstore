@@ -16,7 +16,7 @@ Je suis un libraire qui veut un logiciel pour gérer mon inventaire de livres. J
 
 - [X] Dans mon composant  "Book", j'ai deux boutons (+ et -) pour modifier la quantité.
 
-- [ ] Si la quantité passe à 0, le livre disparait
+- [X] Si la quantité passe à 0, le livre disparait
 
 - [ ] On ajoute un historique qui contient uniquement les livres avec 0 de quantité 
 
