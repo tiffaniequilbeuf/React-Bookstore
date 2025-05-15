@@ -1,75 +1,102 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+    filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+    filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
 }
 
 .card {
-  padding: 2em;
+    padding: 2em;
 }
 
 .read-the-docs {
-  color: #888;
+    color: #888;
 }
 
-.titre{
-  font-weight: bold;
+p{
+    text-align: start;
 }
 
-.item{
-  text-align: start;
+.titre {
+    font-weight: bold;
 }
 
-.btn{
-  background-color: #2f4f4f;
-  color: white;
-  margin : 8px;
+.grid{
+    display : grid;
+    grid-template-columns: 30px 2fr 50px;
+    gap: 4px;
 }
 
-.btn:hover{
-  background-color: #2f4f4fd7;
+.item {
+    text-align: start;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    gap: 4px;
 }
 
-.form{
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  padding-block: 16px;
+.item img {
+    /* border : 1px solid black; */
+    height: 100px;
+    width: auto;
+    margin: 4px;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
 }
 
-label{
-  padding:5px;
+.btn {
+    background-color: #2f4f4f;
+    color: white;
+    margin: 8px;
 }
 
-input{
-  height : 32px; 
+.btn:hover {
+    background-color: #2f4f4fd7;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    padding-block: 16px;
+}
+
+label {
+    padding: 5px;
+}
+
+input {
+    height: 32px;
 }
