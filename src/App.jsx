@@ -63,17 +63,6 @@ function App() {
         setStatusBtn(false);
     }
 
-    function addBook(title) {
-        const updatedBooks = books.map((book) => {
-
-            if (book.title == title) {
-                book.quantity = book.quantity + 1
-            }
-            return book;
-        })
-        setBooks(updatedBooks);
-    }
-
     function onChangeBook(title, value) {
         const updatedBooks = books.map((book) => {
 
@@ -83,10 +72,6 @@ function App() {
             return book;
         })
         setBooks(updatedBooks);
-    }
-
-    function removeBook() {
-        console.log("c'est moins !");
     }
 
     return (
@@ -99,7 +84,7 @@ function App() {
             </div>
             <ul>
                 {
-                    books.map((book) => <Book book={book} addBook={addBook} removeBook={removeBook} onChangeBook={onChangeBook} key={book.title} />)
+                    books.map((book) => <Book book={book} onChangeBook={onChangeBook} key={book.title} />)
                 }
             </ul>
             <button onClick={() => setStatusBtn(!statusBtn)} className="btn">Ajouter un livre</button>

@@ -1,4 +1,4 @@
-export function Book({ book, addBook, removeBook, onChangeBook }) {
+export function Book({ book, onChangeBook }) {
 
     return (
         <>
