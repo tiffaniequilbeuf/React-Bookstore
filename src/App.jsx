@@ -39,41 +39,57 @@ function App() {
     const [title, setTitle] = useState()
     const [author, setAuthor] = useState()
     const [year, setYear] = useState()
+    const [cover, setCover] = useState("")
+    const [quantity, setQuantity] = useState(1)
 
-    function handleSubmit(event){
+    /* mon objet initialBooks n'a pas de propriété quantité. Je vais ajouter pour chaque livre une quantité à 1.Il y a sans doute du map là dessous. 
+    */
+    // function InitQuantity {
+
+    // }
+
+
+    function handleSubmit(event) {
         event.preventDefault();
-        // console.table(title, author, year)
 
-        const newBook = {title : title, author : author, year : year}
+        const newBook = {
+            title: title,
+            author: author,
+            year: year,
+            cover: cover,
+            quantity: quantity,
+        }
         console.log(newBook)
         const newBooks = [...books, newBook]
         setBooks(newBooks);
         setStatusBtn(false);
     }
 
-
     return (
         <>
             <div className='titre'>Liste des livres dans la bibliothèque</div>
             <ul>
                 {
-                    books.map((book) => <Book book={book} key={book.title}/>)
+                    books.map((book) => <Book book={book} key={book.title} />)
                 }
             </ul>
-            <button onClick={()=>setStatusBtn(!statusBtn)} className="btn">Ajouter un livre</button>
+            <button onClick={() => setStatusBtn(!statusBtn)} className="btn">Ajouter un livre</button>
 
             {
                 statusBtn &&
                 <form onSubmit={handleSubmit} className="form">
 
                     <label htmlFor="title">Titre</label>
-                    <input type="text" id="title" value={title} onChange={(event) => setTitle(event.target.value)}/>
+                    <input type="text" id="title" value={title} onChange={(event) => setTitle(event.target.value)} />
 
                     <label htmlFor="author">Auteur</label>
-                    <input type="" id="author" value={author} onChange={(event) => setAuthor(event.target.value)}/>
+                    <input type="" id="author" value={author} onChange={(event) => setAuthor(event.target.value)} />
 
                     <label htmlFor="year">Date de parution</label>
-                    <input type="number" id="year" value={year} onChange={(event) => setYear(event.target.value)}/>
+                    <input type="number" id="year" value={year} onChange={(event) => setYear(event.target.value)} />
+
+                    <label htmlFor="cover">Ajouter une couverture</label>
+                    <input type="url" id="cover" value={cover} onChange={(event) => setCover(event.target.value)} />
 
                     <button className="btn" type="submit">Ajouter</button>
                 </form>

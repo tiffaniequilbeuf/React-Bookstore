@@ -1,8 +1,25 @@
-Projet prise en main
-[X] Créer une liste de livre (dans un état), et l'afficher (nom, auteur, année de parution)
-[X] Chaque livre est un composant et on lui passer les informations en props
-[X] Je veux un bouton pour afficher un formulaire pour ajouter un nouveau livre
-[X] Quand je remplis et valide ce formulaire, le livre s'ajoute, et mon formulaire est caché
+# Projet "Bookstore" :
+
+Je suis un libraire qui veut un logiciel pour gérer mon inventaire de livres. Je veux pouvoir l'utiliser au plus vite, donc chaque étape doit être faite l'une après l'autre :
+
+- [X] Créer une liste de livre (dans un état), et l'afficher (nom, auteur, année de parution)
+
+- [X] Chaque livre est un composant et on lui passer les informations en props
+
+- [X] Je veux un bouton pour afficher un formulaire pour ajouter un nouveau livre
+
+- [X] Quand je remplis et valide ce formulaire, le livre s'ajoute, et mon formulaire est caché
+
+- [X] Dans le formulaire, ajouter un champ pour la couverture du livre (une URL absolue) et afficher cette couverture dans mon composant livre
+
+- [ ] Ajouter un attribut "quantity" dans l'objet livre, pour m'aider à faire mon inventaire. Il est par défaut à 1 quand j'ajoute un livre
+
+- [ ] Dans mon composant  "Book", j'ai deux boutons (+ et -) pour modifier la quantité.
+
+- [ ] Si la quantité passe à 0, le livre disparait
+
+- [ ] On ajoute un historique qui contient uniquement les livres avec 0 de quantité 
+
 
 # React + Vite
 
