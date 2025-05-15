@@ -10,27 +10,32 @@ function App() {
         {
             "title": "1984",
             "author": "George Orwell",
-            "year": 1949
+            "year": 1949,
+            "quantity": 1,
         },
         {
             "title": "Le Meilleur des mondes",
             "author": "Aldous Huxley",
-            "year": 1932
+            "year": 1932,
+            "quantity": 1,
         },
         {
             "title": "Fahrenheit 451",
             "author": "Ray Bradbury",
-            "year": 1953
+            "year": 1953,
+            "quantity": 1,
         },
         {
             "title": "La Peste",
             "author": "Albert Camus",
-            "year": 1947
+            "year": 1947,
+            "quantity": 1,
         },
         {
             "title": "Les Fleurs du mal",
             "author": "Charles Baudelaire",
-            "year": 1857
+            "year": 1857,
+            "quantity": 1,
         }
     ]
 
@@ -41,13 +46,6 @@ function App() {
     const [year, setYear] = useState()
     const [cover, setCover] = useState("")
     const [quantity, setQuantity] = useState(1)
-
-    /* mon objet initialBooks n'a pas de propriété quantité. Je vais ajouter pour chaque livre une quantité à 1.Il y a sans doute du map là dessous. 
-    */
-    // function InitQuantity {
-
-    // }
-
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -65,37 +63,57 @@ function App() {
         setStatusBtn(false);
     }
 
-    return (
-        <>
-            <div className='titre'>Liste des livres dans la bibliothèque</div>
-            <ul>
-                {
-                    books.map((book) => <Book book={book} key={book.title} />)
-                }
-            </ul>
-            <button onClick={() => setStatusBtn(!statusBtn)} className="btn">Ajouter un livre</button>
+    function addBook(title) {
+        const updatedBooks = books.map((book) => {
 
-            {
-                statusBtn &&
-                <form onSubmit={handleSubmit} className="form">
-
-                    <label htmlFor="title">Titre</label>
-                    <input type="text" id="title" value={title} onChange={(event) => setTitle(event.target.value)} />
-
-                    <label htmlFor="author">Auteur</label>
-                    <input type="" id="author" value={author} onChange={(event) => setAuthor(event.target.value)} />
-
-                    <label htmlFor="year">Date de parution</label>
-                    <input type="number" id="year" value={year} onChange={(event) => setYear(event.target.value)} />
-
-                    <label htmlFor="cover">Ajouter une couverture</label>
-                    <input type="url" id="cover" value={cover} onChange={(event) => setCover(event.target.value)} />
-
-                    <button className="btn" type="submit">Ajouter</button>
-                </form>
+            if (book.title == title){
+                book.quantity = book.quantity + 1
             }
-        </>
-    )
+            return book;
+        })
+        setBooks(updatedBooks);
+}
+
+function removeBook() {
+    console.log("c'est moins !");
+}
+
+return (
+    <>
+        <div className='titre bold'>Liste des livres dans la bibliothèque</div>
+        <div className="grid bold">
+            <p>Quantités</p>
+            <p>Livre</p>
+            <p>Couverture</p>
+        </div>
+        <ul>
+            {
+                books.map((book) => <Book book={book} addBook={addBook} removeBook={removeBook} key={book.title} />)
+            }
+        </ul>
+        <button onClick={() => setStatusBtn(!statusBtn)} className="btn">Ajouter un livre</button>
+
+        {
+            statusBtn &&
+            <form onSubmit={handleSubmit} className="form">
+
+                <label htmlFor="title">Titre</label>
+                <input type="text" id="title" value={title} onChange={(event) => setTitle(event.target.value)} />
+
+                <label htmlFor="author">Auteur</label>
+                <input type="" id="author" value={author} onChange={(event) => setAuthor(event.target.value)} />
+
+                <label htmlFor="year">Date de parution</label>
+                <input type="number" id="year" value={year} onChange={(event) => setYear(event.target.value)} />
+
+                <label htmlFor="cover">Ajouter une couverture</label>
+                <input type="url" id="cover" value={cover} onChange={(event) => setCover(event.target.value)} />
+
+                <button className="btn" type="submit">Ajouter</button>
+            </form>
+        }
+    </>
+)
 }
 
 export default App

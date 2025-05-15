@@ -12,7 +12,7 @@ Je suis un libraire qui veut un logiciel pour gérer mon inventaire de livres. J
 
 - [X] Dans le formulaire, ajouter un champ pour la couverture du livre (une URL absolue) et afficher cette couverture dans mon composant livre
 
-- [ ] Ajouter un attribut "quantity" dans l'objet livre, pour m'aider à faire mon inventaire. Il est par défaut à 1 quand j'ajoute un livre
+- [X] Ajouter un attribut "quantity" dans l'objet livre, pour m'aider à faire mon inventaire. Il est par défaut à 1 quand j'ajoute un livre
 
 - [ ] Dans mon composant  "Book", j'ai deux boutons (+ et -) pour modifier la quantité.
 
