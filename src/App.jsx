@@ -18,7 +18,7 @@ function App() {
             "title": "Le Meilleur des mondes",
             "author": "Aldous Huxley",
             "year": 1932,
-            "quantity": 1,
+            "quantity": 0,
         },
         {
             "title": "Fahrenheit 451",
@@ -36,7 +36,7 @@ function App() {
             "title": "Les Fleurs du mal",
             "author": "Charles Baudelaire",
             "year": 1857,
-            "quantity": 1,
+            "quantity": 2,
         }
     ]
 
@@ -47,6 +47,13 @@ function App() {
     const [year, setYear] = useState()
     const [cover, setCover] = useState("")
     const [quantity, setQuantity] = useState(1)
+
+    const availableBooks = books.filter(book => {
+        return book.quantity > 0;
+    });
+    const archivedBooks = books.filter(book => {
+        return book.quantity <= 0;
+    });
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -69,8 +76,6 @@ function App() {
 
             if (book.title == title) {
                 book.quantity = book.quantity + value
-
-
             }
             return book;
         })
@@ -87,7 +92,7 @@ function App() {
             </div>
             <ul>
                 {
-                    books.map((book) => <Book book={book} onChangeBook={onChangeBook} key={book.title} />)
+                    availableBooks.map((book) => <Book book={book} onChangeBook={onChangeBook} key={book.title} />)
                 }
             </ul>
             <button onClick={() => setStatusBtn(!statusBtn)} className="btn">Ajouter un livre</button>
@@ -115,7 +120,7 @@ function App() {
                 <div className='bold'>Livres archivés </div>
                 <ul>
                     {
-                        books.map((book) => <Archives book={book} key={book.title} />)
+                        archivedBooks.map((book) => <Archives book={book} key={book.title} />)
                     }
                 </ul>
             </section>

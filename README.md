@@ -18,7 +18,7 @@ Je suis un libraire qui veut un logiciel pour gérer mon inventaire de livres. J
 
 - [X] Si la quantité passe à 0, le livre disparait
 
-- [ ] On ajoute un historique qui contient uniquement les livres avec 0 de quantité 
+- [X] On ajoute un historique qui contient uniquement les livres avec 0 de quantité 
 
 
 # React + Vite

@@ -1,8 +1,8 @@
 export function Book({ book, onChangeBook }) {
     return (
-        <>
+        <>  
         {   
-            book.quantity > 0 &&
+            // book.quantity > 0 &&
             <li className="grid">
                 <div> 
                     {book.quantity && book.quantity}
