@@ -119,3 +119,10 @@ input {
     font-weight: bold;
 }
 
+.archived{
+    opacity : .5;
+}
+
+.archived li{
+    list-style: none;
+}

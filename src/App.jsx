@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Book } from './composant/Book'
+import { Archives } from './composant/Archives'
 
 function App() {
 
@@ -110,6 +111,14 @@ function App() {
                     <button className="btn" type="submit">Ajouter</button>
                 </form>
             }
+            <section className='archived'>
+                <div className='bold'>Livres archivés </div>
+                <ul>
+                    {
+                        books.map((book) => <Archives book={book} key={book.title} />)
+                    }
+                </ul>
+            </section>
         </>
     )
 }
