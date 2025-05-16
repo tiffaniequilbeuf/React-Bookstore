@@ -49,9 +49,9 @@ p {
     margin-block: 4px;
 }
 
-ul{
-    padding : 0;
-    margin : 0;
+ul {
+    padding: 0;
+    margin: 0;
     margin-bottom: 16px;
 }
 
@@ -66,10 +66,10 @@ input {
 .title {
     font-size: 24px;
     margin-block: 24px;
-    color : #2f4f4f;
+    color: #2f4f4f;
 }
 
-.subtitle{
+.subtitle {
     font-size: 20px;
     font-weight: 600;
     padding-block-end: 16px;
@@ -82,10 +82,11 @@ input {
     gap: 4px;
 }
 
-.border{
+.border {
     border: 1px solid #2f4f4f;
-    width : 100%;
-}   
+    width: 100%;
+}
+
 .item {
     text-align: start;
     gap: 4px;
@@ -106,18 +107,22 @@ input {
     margin: 8px;
 }
 
-.tiny-btn{
-    padding :0 ;
+.tiny-btn {
+    padding: 0;
 }
 
 .link-button {
-   padding : 16px;
-   border-radius: 8px;
-   margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px;
 }
 
 .btn:hover {
     background-color: #2f4f4fd7;
+}
+
+.close-button{
+    background-color : rgb(191, 6, 6);
 }
 
 .form {
@@ -127,14 +132,42 @@ input {
     padding-block: 16px;
 }
 
-.bold{
+.bold {
     font-weight: bold;
 }
 
-.archived{
-    opacity : .5;
+.archived {
+    opacity: .5;
 }
 
-.archived li{
+.archived li {
     list-style: none;
+}
+
+.dialog-content {
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    padding: 16px;
+    border: 1px solid #2f4f4f;
+    border-radius: 8px;
+}
+
+.backdrop{
+    background-color: rgb(78, 75, 75, .5);
+    position: fixed;
+    inset : 0;
+}
+
+.flex{
+    display : flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex .title{
+    margin : 0;
 }

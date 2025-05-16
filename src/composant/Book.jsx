@@ -21,5 +21,3 @@ export function Book({ book }) {
         </>
     )
 }
-
-// https://picsum.photos/70/100

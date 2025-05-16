@@ -7,8 +7,6 @@ export function Home(){
     <h2 className="subtitle">Votre appétit aura-t-il raison de notre bibliothèque ?</h2>
 
     <Link to="collection" className="btn link-button">Découvrir</Link>
-
-{/* Ajouter lien : Accéder à notre collection */}
     </>
    )
 }
