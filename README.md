@@ -14,8 +14,9 @@ Je suis un libraire qui veut un logiciel pour gérer mon inventaire de livres. J
 
 Après validation, axes d'évolution : ajouter une bouton + coté archives. Si il y a un retour en stock, le livre repassera dans le tableau du haut. On pouvait tout faire avec le même composant et 2 états. On peut lui ajouter une petite props isArchived par exemple qui lui applique une opacité...
 
-- [ ] Migrez votre bibliothèque dans un store Zustand
+- [X] Migrez votre bibliothèque dans un store Zustand
 - [ ] Ajoutez React Router et créez une page d'accueil pour l'application
+- [ ] Migrez votre formulaire dans une popup radix
 
 
 # React + Vite

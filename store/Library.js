@@ -36,9 +36,39 @@ export const useLibrary = create((set, get) => ({
     ],
 
     //getters
-    availableBooks : get().books.filter(book => { return book.quantity > 0; }),
-    archivedBooks : get().books.filter(book => { return book.quantity <= 0; }),
+    availableBooks() {
+        return get().books.filter(book => { return book.quantity > 0; })
+    },
+    archivedBooks(){
+        return get().books.filter(book => { return book.quantity <= 0; })
+    },
 
     //setters
-})
-)
+    setBooks(books){
+        set({books})
+    },
+
+    //actions
+    addBook(book) {
+        const books = get().books;
+        const newBook = {
+            title: book.title,
+            author: book.author,
+            year: book.year,
+            cover: book.cover,
+            quantity: book.quantity
+        };
+        const updatedBooks = [...books, newBook];
+        set({books:updatedBooks})
+    },
+    onChangeBook(title, value) {
+        const books = get().books;
+        const updatedBooks = books.map((book) => {
+            if (book.title == title) {
+                return { ...book, quantity: book.quantity + value };
+            }
+            return book;
+        })
+        set({ books: updatedBooks });
+    }
+}));

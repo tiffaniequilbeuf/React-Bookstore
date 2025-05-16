@@ -1,86 +1,34 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Book } from './composant/Book'
 import { Archives } from './composant/Archives'
+import { useLibrary } from '../store/Library'
 
 function App() {
 
-    const initialBooks = [
-        {
-            "title": "1984",
-            "author": "George Orwell",
-            "year": 1949,
-            "quantity": 1,
-        },
-        {
-            "title": "Le Meilleur des mondes",
-            "author": "Aldous Huxley",
-            "year": 1932,
-            "quantity": 0,
-        },
-        {
-            "title": "Fahrenheit 451",
-            "author": "Ray Bradbury",
-            "year": 1953,
-            "quantity": 1,
-        },
-        {
-            "title": "La Peste",
-            "author": "Albert Camus",
-            "year": 1947,
-            "quantity": 1,
-        },
-        {
-            "title": "Les Fleurs du mal",
-            "author": "Charles Baudelaire",
-            "year": 1857,
-            "quantity": 2,
-        }
-    ]
+    const availableBooks = useLibrary(state => state.availableBooks);
+    const archivedBooks = useLibrary(state => state.archivedBooks);
 
-    const [books, setBooks] = useState(initialBooks)
+    const { addBook } = useLibrary((state) => state);
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        addBook({
+            title,
+            author,
+            year,
+            cover,
+            quantity : 1
+        })
+        setStatusBtn(false);
+    }
+
     const [statusBtn, setStatusBtn] = useState(false)
     const [title, setTitle] = useState()
     const [author, setAuthor] = useState()
     const [year, setYear] = useState()
     const [cover, setCover] = useState("")
     const [quantity, setQuantity] = useState(1)
-
-    const availableBooks = books.filter(book => {
-        return book.quantity > 0;
-    });
-    const archivedBooks = books.filter(book => {
-        return book.quantity <= 0;
-    });
-
-    function handleSubmit(event) {
-        event.preventDefault();
-
-        const newBook = {
-            title: title,
-            author: author,
-            year: year,
-            cover: cover,
-            quantity: quantity,
-        }
-        console.log(newBook)
-        const newBooks = [...books, newBook]
-        setBooks(newBooks);
-        setStatusBtn(false);
-    }
-
-    function onChangeBook(title, value) {
-        const updatedBooks = books.map((book) => {
-
-            if (book.title == title) {
-                book.quantity = book.quantity + value
-            }
-            return book;
-        })
-        setBooks(updatedBooks);
-    }
 
     return (
         <>
@@ -92,7 +40,7 @@ function App() {
             </div>
             <ul>
                 {
-                    availableBooks.map((book) => <Book book={book} onChangeBook={onChangeBook} key={book.title} />)
+                    availableBooks().map((book) => <Book book={book} key={book.title} />)
                 }
             </ul>
             <button onClick={() => setStatusBtn(!statusBtn)} className="btn">Ajouter un livre</button>
@@ -120,7 +68,7 @@ function App() {
                 <div className='bold'>Livres archivés </div>
                 <ul>
                     {
-                        archivedBooks.map((book) => <Archives book={book} key={book.title} />)
+                        archivedBooks().map((book) => <Archives book={book} key={book.title} />)
                     }
                 </ul>
             </section>

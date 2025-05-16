@@ -1,4 +1,9 @@
-export function Book({ book, onChangeBook }) {
+import { useLibrary } from "../../store/Library";
+
+export function Book({ book }) {
+
+    const { onChangeBook } = useLibrary((state) => state);
+
     return (
         <>  
             <li className="grid">
